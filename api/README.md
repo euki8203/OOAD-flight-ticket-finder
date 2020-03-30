@@ -5,6 +5,9 @@
 
 2. run `npm start`
 
+	2-1) If `Error: Cannot find module 'express'`,
+		try `npm install express`
+
 3. port is at 3100.
 
   3-1. Endpoints
@@ -33,4 +36,6 @@
 	
 	*"outboundDate": departure date. Must be in YYYY-MM-DD format. 
 	
-	*"adults": number of adults.
+	*"adults": number of adults.`
+	
+	
