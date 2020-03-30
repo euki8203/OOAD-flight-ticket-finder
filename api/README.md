@@ -1,8 +1,8 @@
-### Instructions
+# Instructions
 
-1. run 'npm install'
+1. run `npm install`
 
-2. run 'npm start'
+2. run `npm start`
 
 3. port is at 3100.
   3-1. Endpoints
