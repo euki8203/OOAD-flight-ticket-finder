@@ -1,4 +1,13 @@
 .env
 .DS_Store
+
+#ignore constants.js
 ./constants.js
 constants.js
+api/constants.js
+
+#ignore node_modules
+node_modules/
+api/node_modules/
+
+logs
