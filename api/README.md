@@ -34,7 +34,8 @@
 4. returns JSON 
 
   4-1. example JSON 
-  	    "QuoteId": 1,
+  
+  	  ` "QuoteId": 1,
             "MinPrice": 192,
             "Direct": true,
             "OutboundLeg": {
@@ -45,5 +46,7 @@
                 "DestinationId": 60987,
                 "DepartureDate": "2020-04-05T00:00:00"
             },
-            "QuoteDateTime": "2020-04-03T05:13:00"
+            "QuoteDateTime": "2020-04-03T05:13:00"`
+	    
+	    
 	
