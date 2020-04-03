@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 var constants = require('./constants');
-const requestHandler = require('./requestHandler.js')
-const { sendJsonResponse } = require('./responseHelper.js');
 const fetch = require("node-fetch");
 
 
@@ -10,7 +8,6 @@ app.post('/findFlight', function(req, res) {
 	const { inboundDate, country, currency, locale, originPlace,
 			destinationPlace, outboundDate}  = req.query;
 
-	// return date
 	returnDate = (inboundDate == undefined) ?  new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0,10) : inboundDate.toString()
 	bodyCountry = (country == undefined) ? "US" : country.toString()
 	bodyCurrency = (currency == undefined) ? "USD" : currency.toString()
