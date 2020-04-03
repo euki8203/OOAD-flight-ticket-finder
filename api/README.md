@@ -18,12 +18,6 @@
     
   	"inboundDate": return date. Must be in YYYY-MM-DD format. 
 	
-	"cabinClass": ex.business.
-	
-	"children": number of children.
-	
-	"infants": number of infants.
-	
 	*"country": country of origin.
 	
 	*"currency": ex.USD.
@@ -34,8 +28,22 @@
 	
 	*"destinationPlace": 3 letter code for destination aiport. ex.SFO-sky.
 	
-	*"outboundDate": departure date. Must be in YYYY-MM-DD format. 
+	*"outboundDate": departure date. Must be in YYYY-MM-DD format. `
 	
-	*"adults": number of adults.`
 	
+4. returns JSON 
+
+  4-1. example JSON 
+  	    "QuoteId": 1,
+            "MinPrice": 192,
+            "Direct": true,
+            "OutboundLeg": {
+                "CarrierIds": [
+                    851
+                ],
+                "OriginId": 81727,
+                "DestinationId": 60987,
+                "DepartureDate": "2020-04-05T00:00:00"
+            },
+            "QuoteDateTime": "2020-04-03T05:13:00"
 	
