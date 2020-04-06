@@ -43,6 +43,7 @@ The user must be able to filter the flight options based on the starting locatio
 
 The user must be able to sort the flight options by the price.
 
+![Actor Diagram](images/image1.png)
 
 ### UMLActivity Diagram
 
