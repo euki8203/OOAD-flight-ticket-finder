@@ -18,12 +18,6 @@
     
   	"inboundDate": return date. Must be in YYYY-MM-DD format. 
 	
-	"cabinClass": ex.business.
-	
-	"children": number of children.
-	
-	"infants": number of infants.
-	
 	*"country": country of origin.
 	
 	*"currency": ex.USD.
@@ -34,8 +28,116 @@
 	
 	*"destinationPlace": 3 letter code for destination aiport. ex.SFO-sky.
 	
-	*"outboundDate": departure date. Must be in YYYY-MM-DD format. 
+	*"outboundDate": departure date. Must be in YYYY-MM-DD format. `
 	
-	*"adults": number of adults.`
 	
+4. returns JSON 
+
+  4-1. example JSON 
+  
+ 	{
+	    "Routes": [],
+	    "Quotes": [
+		{
+		    "QuoteId": 1,
+		    "MinPrice": 192,
+		    "Direct": true,
+		    "OutboundLeg": {
+			"CarrierIds": [
+			    851
+			],
+			"OriginId": 81727,
+			"DestinationId": 60987,
+			"DepartureDate": "2020-04-05T00:00:00"
+		    },
+		    "QuoteDateTime": "2020-04-03T05:13:00"
+		},
+		{
+		    "QuoteId": 2,
+		    "MinPrice": 159,
+		    "Direct": false,
+		    "OutboundLeg": {
+			"CarrierIds": [
+			    851
+			],
+			"OriginId": 81727,
+			"DestinationId": 60987,
+			"DepartureDate": "2020-04-06T00:00:00"
+		    },
+		    "QuoteDateTime": "2020-04-03T10:23:00"
+		},
+		{
+		    "QuoteId": 3,
+		    "MinPrice": 192,
+		    "Direct": true,
+		    "OutboundLeg": {
+			"CarrierIds": [
+			    851
+			],
+			"OriginId": 81727,
+			"DestinationId": 60987,
+			"DepartureDate": "2020-04-06T00:00:00"
+		    },
+		    "QuoteDateTime": "2020-04-03T10:23:00"
+		}
+	     ],
+	    "Places": [
+		{
+		    "PlaceId": 60987,
+		    "IataCode": "JFK",
+		    "Name": "New York John F. Kennedy",
+		    "Type": "Station",
+		    "SkyscannerCode": "JFK",
+		    "CityName": "New York",
+		    "CityId": "NYCA",
+		    "CountryName": "United States"
+		},
+		{
+		    "PlaceId": 81727,
+		    "IataCode": "SFO",
+		    "Name": "San Francisco International",
+		    "Type": "Station",
+		    "SkyscannerCode": "SFO",
+		    "CityName": "San Francisco",
+		    "CityId": "SFOA",
+		    "CountryName": "United States"
+		}
+	    ],
+	    "Carriers": [
+		{
+		    "CarrierId": 851,
+		    "Name": "Alaska Airlines"
+		},
+		{
+		    "CarrierId": 857,
+		    "Name": "Finnair"
+		},
+		{
+		    "CarrierId": 870,
+		    "Name": "jetBlue"
+		},
+		{
+		    "CarrierId": 1065,
+		    "Name": "Frontier Airlines"
+		},
+		{
+		    "CarrierId": 1467,
+		    "Name": "Spirit Airlines"
+		}
+	    ],
+	    "Currencies": [
+		{
+		    "Code": "USD",
+		    "Symbol": "$",
+		    "ThousandsSeparator": ",",
+		    "DecimalSeparator": ".",
+		    "SymbolOnLeft": true,
+		    "SpaceBetweenAmountAndSymbol": false,
+		    "RoundingCoefficient": 0,
+		    "DecimalDigits": 2
+		}
+	    ]
+	}
+
+	    
 	
