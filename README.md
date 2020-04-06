@@ -81,7 +81,7 @@ Enter user information (constraints)
 
    User struct will be created and FlightOptions will be updated with the arguments. Then the application will access the DB to fetch the corresponding data and display it via the cloud. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
    
-![UML Sequence Diagram2](images/image3.png)
+![UML Sequence Diagram2](images/image2.png)
 
 
   Notified by the application if option does not exist
@@ -102,7 +102,7 @@ Enter user information (constraints)
    
    Once the flight options are displayed, the user can filter the flight options by calling the updateFilter(key, value) function. Key includes categories like price and direct. Value is the value you would like to replace for the key. (ex. updateFilter(minPrice, 150) will change the minPrice to 150. Once the flight options are filtered by changing the values of the variables in the FlightOptions Struct and fetching from the database again, it will call the display method which will display the options on the UI via cloud.
    
-![UML Sequence Diagram5](images/image12.png)
+![UML Sequence Diagram5](images/image3.png)
 
 
 ### UML Class Diagram:
