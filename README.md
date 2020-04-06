@@ -46,16 +46,16 @@ The user must be able to sort the flight options by the price.
 ![Actor Diagram](images/image1.png)
 
 ### UMLActivity Diagram
-![UML Activity Diagram](images/image2.png)
+![UML Activity Diagram](images/image6.png)
 
 ### Architecture Diagram
-![Architecture Diagram](images/image3.png)
+![Architecture Diagram](images/image7.png)
 
 ### UI Mockups/ Sketches
-![UI Mockups](images/image4.png)
-![UI Mockups](images/image5.png)
-![UI Mockups](images/image6.png)
-![UI Mockups](images/image7.png)
+![UI Mockups](images/image8.png)
+![UI Mockups](images/image9.png)
+![UI Mockups](images/image10.png)
+![UI Mockups](images/image12.png)
 
 ### User Interactions/ UML Sequence Diagram
 
@@ -64,24 +64,24 @@ View flights
   View all flights
 
    User struct will be created and FlightOptions will be updated (with default None for all arguments). Then the application will access the DB to fetch the according data and display it via the cloud. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-![UML Sequence Diagram1](images/image8.png)
+![UML Sequence Diagram1](images/image2.png)
 
 Enter user information (constraints)
 
   View results (flight options)
 
    User struct will be created and FlightOptions will be updated with the arguments. Then the application will access the DB to fetch the corresponding data and display it via the cloud. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-![UML Sequence Diagram2](images/image9.png)
+![UML Sequence Diagram2](images/image3.png)
 
   Notified by the application if option does not exist
 
    User struct will be created and FlightOptions will be updated with the arguments. Then the application will access the DB to fetch the according data. When the data that meets the user required fields does not exist, function notifyUser() will be called which displays a notification on site and let user know that a flight option that meets the category does not exist. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-![UML Sequence Diagram3](images/image10.png)
+![UML Sequence Diagram3](images/image4.png)
 
   Sort flight options
   
    Once the flight options are displayed, the user can sort the flight options by calling the sort(key) function. Key includes increasingPrice and decreasingPrice. Once the flight options are sorted, it will call the display method which will display the options on the UI via cloud.
-![UML Sequence Diagram4](images/image11.png)
+![UML Sequence Diagram4](images/image5.png)
    
    Fliter flight options
    
@@ -93,7 +93,7 @@ Enter user information (constraints)
 
 Pattern Use: Singleton - database, Strategy - sort behavior, Factory - flight options
 
-![UML Class Diagram](images/image13.png)
+![UML Class Diagram](images/image11.png)
 
 
 
