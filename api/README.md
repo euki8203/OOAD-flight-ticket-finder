@@ -139,5 +139,7 @@
 	    ]
 	}
 
+
+5. Disclaimer: Current API subscription is limited to 10 queries per day.
 	    
 	
