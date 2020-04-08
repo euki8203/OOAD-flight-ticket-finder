@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import View from "./View";
  
 class Submit extends Component {
   constructor(props) {
@@ -74,9 +76,11 @@ class Submit extends Component {
               <input type="date" id="returnDate" name="returnDate" value={this.state.returnDate} onChange={this.handleChange}/>
          </form>
       <div>
+        <Link to="/View">
           <button onClick={() => {this.handleClick()}}>
               Submit
           </button>
+          </Link>
       </div>
       </div>
       
