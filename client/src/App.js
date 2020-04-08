@@ -14,9 +14,9 @@ class App extends Component {
             <img alt="Plane logo" src="./plane_logo.png"
             width="50" height="50"/>
             <h1> Flight Ticket Finder</h1>
-            <Link to="/" class="select_button">About</Link>
-            <Link to="/View" class="select_button">View All Flight Options</Link>
-            <Link to="/Submit" class="select_button">Enter Flight Information</Link>
+            <Link to="/" className="select_button">About</Link>
+            <Link to="/View" className="select_button">View All Flight Options</Link>
+            <Link to="/Submit" className="select_button">Enter Flight Information</Link>
           </div>
           <Switch>
             <Route exact path="/" component={Home}/>
