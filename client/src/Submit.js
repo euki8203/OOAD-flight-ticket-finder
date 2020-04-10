@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import View from "./View";
  
+ // TO DO: css. make it look pretty
+ // TO DO: link OutboundLeg and carrier id to logos 
+
 class Submit extends Component {
   constructor(props) {
     super(props);
@@ -48,9 +51,18 @@ class Submit extends Component {
     }
   }
 
+  renderFlights(){
+    return this.state.flights.Quotes.map(el => (
+      <li key={el.QuoteId}>
+      {el.QuoteId}: {el.MinPrice}, {el.Direct}, {el.QuoteDateTime}
+       </li>
+    ))
+  }
+
+
   render() {
     return (
-      <div>
+      <div className="center">
         <form>
           <label>Origin</label>
               <input type="text" id="origin" name="origin" value={this.state.origin} onChange={this.handleChange}/>
@@ -81,6 +93,7 @@ class Submit extends Component {
               Submit
           </button>
           </Link>
+      <div>{this.state.isLoading === false ? this.renderFlights() : "Loading"} </div>
       </div>
       </div>
       

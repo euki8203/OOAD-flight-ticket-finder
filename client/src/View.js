@@ -1,5 +1,9 @@
 import React, { Component } from "react";
  
+
+ // TO DO: css. make it look pretty
+ // TO DO: link OutboundLeg and carrier id to logos 
+
 class View extends Component {
 	constructor(props) {
     super(props);
@@ -29,7 +33,7 @@ class View extends Component {
             flights: res.data,
             isLoading: false
           })
-          console.log(this.state.flights)
+          //console.log(this.state.flights)
     }));
     }catch (e) {
       alert(e);
@@ -37,11 +41,19 @@ class View extends Component {
 
   }
 
+  renderFlights(){
+    return this.state.flights.Quotes.map(el => (
+      <li key={el.QuoteId}>
+      {el.QuoteId}: {el.MinPrice}, {el.Direct}, {el.QuoteDateTime}
+       </li>
+    ))
+  }
+
   render() {
     return (
-      <div>
-      {this.state.flights[0]}
-      </div>
+    <div>
+    {this.state.isLoading === false ? this.renderFlights() : "Loading"}
+    </div>
     );
   }
 }
