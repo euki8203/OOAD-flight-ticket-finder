@@ -1,8 +1,8 @@
 import React, { Component } from "react";
- 
 
  // TO DO: css. make it look pretty
- // TO DO: link OutboundLeg and carrier id to logos 
+ // TO DO: link OutboundLeg.CarrierIds to logos of the airline
+ // TO DO: get currency symbol
 
 class View extends Component {
 	constructor(props) {
@@ -44,14 +44,14 @@ class View extends Component {
   renderFlights(){
     return this.state.flights.Quotes.map(el => (
       <li key={el.QuoteId}>
-      {el.QuoteId}: {el.MinPrice}, {el.Direct}, {el.QuoteDateTime}
+      "Price: ",{el.MinPrice}, "Carrier: ",{el.OutboundLeg.CarrierIds}
        </li>
     ))
   }
 
   render() {
     return (
-    <div>
+    <div className= "center">
     {this.state.isLoading === false ? this.renderFlights() : "Loading"}
     </div>
     );

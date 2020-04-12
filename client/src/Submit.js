@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import View from "./View";
  
  // TO DO: css. make it look pretty
- // TO DO: link OutboundLeg and carrier id to logos 
+ // TO DO: link OutboundLeg.CarrierIds to logos of the airline
+ // TO DO: get currency symbol
 
 class Submit extends Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class Submit extends Component {
               Submit
           </button>
           </Link>
-      <div>{this.state.isLoading === false ? this.renderFlights() : "Loading"} </div>
+      <div>{this.state.isLoading === false ? this.renderFlights() : ""} </div>
       </div>
       </div>
       
