@@ -23,13 +23,13 @@ from the Skyscanner api. Reference: https://rapidapi.com/blog/skyscanner-api-ove
 1. Get RapidAPI key from https://rapidapi.com/skyscanner/api/skyscanner-flight-search and create a file called constants.js
 in the api root folder. Populate constants.js with 
 
-    `module.exports = Object.freeze({
+    module.exports = Object.freeze({
     
         key : {your key}
         
     });
 
-    OR
+   OR
 
    request constants.js to ashleykim0506@gmail.com
 
