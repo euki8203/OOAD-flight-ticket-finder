@@ -13,103 +13,23 @@ Elizabeth Qiu
 
 ### Overview: 
 
-For this project we will design and develop a cloud based web application which will match the cheapest flight ticket with the user provided information (such as price range, date of travel, number of baggage, and etc.) using the data from the Skyscanner api. Reference: https://rapidapi.com/blog/skyscanner-api-overview/php/
+For this project we will design and develop a cloud based web application which will match the cheapest flight ticket 
+with the user provided information (such as price range, date of travel, number of baggage, and etc.) using the data 
+from the Skyscanner api. Reference: https://rapidapi.com/blog/skyscanner-api-overview/php/
 
 
-### Project Requirements:
+### Instruction:
 
-The web application must have a basic UI that is easy to navigate.  
+1. Get RapidAPI key from https://rapidapi.com/skyscanner/api/skyscanner-flight-search and create a file called constants.js
+in the api root folder. Populate constants.js with 
 
-The user must be able to interactively use the web application. 
+   `module.exports = Object.freeze({ key : {your key} });`
 
-The application must deliver a flight option(s) that meets users requirement(s).
+   OR
 
-The response time of the web application must be reasonable. 
-
-
-### Users and Tasks (Use Cases):
-
-The number of concurrent users will depend on the capacity of the web server and the number of allowed responses/queries of the Skyscanner flight api. 
-
-To use the interactive application, users must provide one or more information (such as price range, date of travel, whether the flight is direct or not, and etc.) to view the flight options.
-
-If the flight option with the user provided data does not exist (ex. selected date is not within 6 months from the current date), the application must let the user know.
-
-Any combination of the categories must be possible. (ex. Flight ticket from DEN to LAX on March 7th, less than $200 that departs before 10am.)
-
-If the user wishes to view all flight options, the application will display all flight options.
-
-The user must be able to filter the flight options based on the starting location and destination, date of departure and arrival, price range, and number of stops.
-
-The user must be able to sort the flight options by the price.
-
-![Actor Diagram](images/image1.png)
+   request constants.js to ashleykim0506@gmail.com
 
 
-### UMLActivity Diagram
+2. run `npm install` and `npm start` in the api root folder.
 
-![UML Activity Diagram](images/image6.png)
-
-
-### Architecture Diagram
-
-![Architecture Diagram](images/image7.png)
-
-
-### UI Mockups/ Sketches
-
-![UI Mockups](images/image9.png)
-![UI Mockups](images/image8.png)
-![UI Mockups](images/image10.png)
-![UI Mockups](images/image12.png)
-
-
-### User Interactions/ UML Sequence Diagram
-
-View flights
-
-  View all flights
-
-   User struct will be created and FlightOptions will be updated (with default None for all arguments). Then the application will access the DB to fetch the according data and display it via the cloud. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-   
-![UML Sequence Diagram1](images/image2.png)
-
-
-Enter user information (constraints)
-
-  View results (flight options)
-
-   User struct will be created and FlightOptions will be updated with the arguments. Then the application will access the DB to fetch the corresponding data and display it via the cloud. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-   
-![UML Sequence Diagram2](images/image2.png)
-
-
-  Notified by the application if option does not exist
-
-   User struct will be created and FlightOptions will be updated with the arguments. Then the application will access the DB to fetch the according data. When the data that meets the user required fields does not exist, function notifyUser() will be called which displays a notification on site and let user know that a flight option that meets the category does not exist. Once the process is terminated, it can loop back to the initial page and prompt the user to enter user information again. 
-   
-![UML Sequence Diagram3](images/image4.png)
-
-
-  Sort flight options
-  
-   Once the flight options are displayed, the user can sort the flight options by calling the sort(key) function. Key includes increasingPrice and decreasingPrice. Once the flight options are sorted, it will call the display method which will display the options on the UI via cloud.
-   
-![UML Sequence Diagram4](images/image5.png)
-
-   
-   Fliter flight options
-   
-   Once the flight options are displayed, the user can filter the flight options by calling the updateFilter(key, value) function. Key includes categories like price and direct. Value is the value you would like to replace for the key. (ex. updateFilter(minPrice, 150) will change the minPrice to 150. Once the flight options are filtered by changing the values of the variables in the FlightOptions Struct and fetching from the database again, it will call the display method which will display the options on the UI via cloud.
-   
-![UML Sequence Diagram5](images/image3.png)
-
-
-### UML Class Diagram:
-
-Pattern Use: Singleton - database, Strategy - sort behavior, Factory - flight options
-
-![UML Class Diagram](images/image11.png)
-
-
-
+3. run `npm install` and `npm start` in the client root folder.
