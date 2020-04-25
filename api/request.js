@@ -9,11 +9,11 @@ app.get('/findFlight', function(req, res) {
 	let currency = "USD";
 	let locale = "en-US";
 
-	returnDate = (inboundDate === 'undefined') ?  new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0,10) : inboundDate.toString()
+	returnDate = (inboundDate === 'undefined') ?  new Date(new Date().getTime() + 8 * 24 * 60 * 60 * 1000).toISOString().slice(0,10) : inboundDate.toString()
 	bodyCountry = (country === 'undefined') ? "US" : country.toString()
-	bodyOriginPlace = (originPlace === 'undefined') ? "DEN-sky" : originPlace.toString()
-	bodyDestinationPlace = (destinationPlace === 'undefined') ? "SFO-sky" : destinationPlace.toString()
-	departureDate = (outboundDate === 'undefined') ? new Date().toISOString().slice(0,10) : outboundDate.toString()
+	bodyOriginPlace = (originPlace === 'undefined') ? "DEN" : originPlace.toString()
+	bodyDestinationPlace = (destinationPlace === 'undefined') ? "SFO" : destinationPlace.toString()
+	departureDate = (outboundDate === 'undefined') ? new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000).toISOString().slice(0,10) : outboundDate.toString()
 
 	//console.log(returnDate, bodyCountry, bodyOriginPlace, bodyDestinationPlace, departureDate)
 

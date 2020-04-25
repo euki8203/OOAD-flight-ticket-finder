@@ -12,10 +12,10 @@ class App extends Component {
         <div>
           <div className="header">
             <img alt="Plane logo" src="./plane_logo.png"
-            width="50" height="50"/>
+            width="70" height="70"/>
             <h1> Flight Ticket Finder</h1>
             <Link to="/" className="select_button">About</Link>
-            <Link to="/View" className="select_button">View All Flight Options</Link>
+            <Link to="/View" className="select_button">View Sample Flight Options</Link>
             <Link to="/Submit" className="select_button">Enter Flight Information</Link>
           </div>
           <Switch>

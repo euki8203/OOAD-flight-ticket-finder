@@ -77,3 +77,28 @@ code {
   height: 2.25rem!important;
   width: 100%!important;
 }
+
+.quote-container {
+  margin: auto;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.quote {
+  list-style-type: none;
+  width: 90%;
+  margin: 10px;
+  display: inline-block;
+  /* width: 100%; */
+}
+  
+.quote img
+{
+  float: left;
+}
+  
+.quote p,.quote h3,.quote h2 {
+  text-align: right; 
+  display: inline-block;
+}

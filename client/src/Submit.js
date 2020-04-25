@@ -65,15 +65,15 @@ class Submit extends Component {
     return (
       <div className="center">
         <form>
-          <label>Origin</label>
+          <label>Origin (ex. DEN, JFK)</label>
               <input type="text" id="origin" name="origin" value={this.state.origin} onChange={this.handleChange}/>
         </form>
         <form>
-          <label>Destination</label>
+          <label>Destination (ex. SFO, ORD)</label>
               <input type="text" id="destination" name="destination" value={this.state.destination} onChange={this.handleChange}/>
         </form>
         <form>
-          <label>Destination Country</label>
+          <label>Destination Country (ex. US)</label>
               <input type="text" id="destinationCountry" name="destinationCountry" value={this.state.destinationCountry} onChange={this.handleChange}/>
         </form>
         <form>
