@@ -49,33 +49,18 @@ code {
 	top:1px;
 }
 
-.input {
-  text-align: center;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-top: 20px;
-}
-
-.input label {
-  display: block;
-  margin-bottom: 15px;
-  color: #34363d;
-  font: 400 .9rem Source Sans Pro,sans-serif;
-}
-
-.cont {
-  width: 40%;
-}
-
-.inputbox {
-  font: 400 1rem Source Sans Pro,sans-serif;
+.submit {
+  margin: auto;
+  width: 30%;
   box-sizing: border-box;
-  margin-bottom: .25rem;
-  height: 2.25rem!important;
-  width: 100%!important;
+  text-align: center;
+}
+
+input,select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
 }
 
 .quote-container {
@@ -87,10 +72,9 @@ code {
 
 .quote {
   list-style-type: none;
-  width: 90%;
+  width: 100%;
   margin: 10px;
   display: inline-block;
-  /* width: 100%; */
 }
   
 .quote img

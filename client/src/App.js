@@ -15,7 +15,7 @@ class App extends Component {
             width="70" height="70"/>
             <h1> Flight Ticket Finder</h1>
             <Link to="/" className="select_button">About</Link>
-            <Link to="/View" className="select_button">View Sample Flight Options</Link>
+            <Link to="/View" className="select_button">View Flight Options</Link>
             <Link to="/Submit" className="select_button">Enter Flight Information</Link>
           </div>
           <Switch>

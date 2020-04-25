@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import View from "./View";
  
  // TO DO: css. make it look pretty
  // TO DO: link OutboundLeg.CarrierIds to logos of the airline
@@ -18,9 +17,11 @@ class Submit extends Component {
       depatureDate: undefined,
       returnDate: undefined,
       isLoading: true,
-      flights: []
+      flights: [],
+      sortBehavior: "price"
     };
   }
+
 
   handleChange = event => {
     event.preventDefault();
@@ -28,7 +29,7 @@ class Submit extends Component {
       [event.target.id]: event.target.value
     });
 
-    //console.log(event.target.id,": ", event.target.value)
+    // console.log(event.target.id,": ", event.target.value)
   }
 
   async handleClick() {
@@ -63,38 +64,49 @@ class Submit extends Component {
 
   render() {
     return (
-      <div className="center">
+      <div className="submit">
         <form>
-          <label>Origin (ex. DEN, JFK)</label>
+          <label>Origin (ex. DEN, DFW) </label>
               <input type="text" id="origin" name="origin" value={this.state.origin} onChange={this.handleChange}/>
         </form>
         <form>
-          <label>Destination (ex. SFO, ORD)</label>
+          <label>Destination (ex. SFO, ORD) </label>
               <input type="text" id="destination" name="destination" value={this.state.destination} onChange={this.handleChange}/>
         </form>
         <form>
-          <label>Destination Country (ex. US)</label>
+          <label>Destination Country (ex. US) </label>
               <input type="text" id="destinationCountry" name="destinationCountry" value={this.state.destinationCountry} onChange={this.handleChange}/>
         </form>
         <form>
-              <label>Price</label>
-              <input type="number" id="price" name="price" className="inputbox" placeholder="Price..." value={this.state.price} onChange={this.handleChange}/>
+              <label>Maximum Price </label>
+              <input type="number" id="price" name="price" placeholder="Price..." value={this.state.price} onChange={this.handleChange}/>
         </form>
         <form>
-              <label>Departure Date</label>
+              <p> Departure Dates </p>
+              <label> From </label>
               <input type="date" id="depatureDate" name="depatureDate" value={this.state.depatureDate} onChange={this.handleChange}/>
         </form>
         <form>
-              <label>Return Date</label>
+              <label>To </label>
               <input type="date" id="returnDate" name="returnDate" value={this.state.returnDate} onChange={this.handleChange}/>
          </form>
+         <form>
+          <label> Sort by: </label>
+          <select id="sortBehavior" value = {this.state.sortBehavior} onChange={this.handleChange}>
+            <option value="price">Price</option>
+            <option value="time">Time</option>
+          </select>
+        </form>
+        {console.log(this.state.sortBehavior)}
       <div>
-        <Link to="/View">
-          <button onClick={() => {this.handleClick()}}>
+        <Link to={{ 
+            pathname: '/View', 
+            state: this.state
+          }}>
+          <button className="select_button">
               Submit
           </button>
           </Link>
-      <div>{this.state.isLoading === false ? this.renderFlights() : ""} </div>
       </div>
       </div>
       

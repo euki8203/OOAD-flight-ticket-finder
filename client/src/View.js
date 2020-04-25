@@ -4,7 +4,8 @@ class View extends Component {
 	constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = (this.props.location.state === undefined) ?
+    {
       origin: undefined,
       destination: undefined,
       destinationCountry: undefined,
@@ -12,10 +13,11 @@ class View extends Component {
       depatureDate: undefined,
       returnDate: undefined,
       isLoading: true,
-      flights: []
-    };
-    this.sort = undefined;
+      flights: [],
+      sortBehavior: undefined
+    }: this.props.location.state;
   }
+
 
   async componentDidMount(){
   	try{
@@ -70,13 +72,13 @@ class View extends Component {
       return "./alaska_logo.png";
     }
     else if (ID == "1793"){
-      return "united_logo.png";
+      return "./united_logo.png";
     }
     else if (ID == "1065"){
-      return "frontier_logo.png";
+      return "./frontier_logo.png";
     }
     else if (ID == "1467"){
-      return "spirit_logo.png";
+      return "./spirit_logo.png";
     }
     else {
       return "./plane_logo.png";
@@ -102,29 +104,45 @@ class View extends Component {
     return newdate.getFullYear()+'-' + (newdate.getMonth()+1) + '-'+newdate.getDate();
   }
 
+  getOrigin() {
+    var ret = (this.state.origin == undefined) ? "DEN" : this.state.origin;
+    return ret;
+  }
+
+  getDestination() {
+    var ret = (this.state.destination == undefined) ? "SFO" : this.state.destination;
+    return ret;
+  }
+
+  filterFlights() {
+    var ret = (this.state.price == undefined) ? this.state.flights.Quotes :
+    this.state.flights.Quotes.filter(el => {
+      if (el.MinPrice <= this.state.price) {
+        return el;
+      }
+    });
+
+    return ret;
+  }
+
+  checkLength() {
+    if (this.filterFlights().length == 0) { return "No Flights Available"}
+  }
 
   renderFlights() {
-    
+    console.log(this.state);
     return(
     <div>
-      <div class="dropdown">
-        <label for="sort">Sort by: </label>
-        <select id="sort"value={this.state.selectSort} 
-        onChange={this.handleSort} >
-          <option value="price">Price</option>
-          <option value="time">Time</option>
-        </select>
-        {this.sortFlights(this.sort.value)}
-      </div>
-      <div class="quote-container">
-      {this.state.flights.Quotes.map(el => (
-        <li key={el.QuoteId} class= "quote">
+      {this.sortFlights(this.state.sortBehavior)}
+      <div className ="quote-container">
+      {this.filterFlights().map(el => (
+        <li key={el.QuoteId} className = "quote">
         <div>
           <img src={this.getCarrierLogo(el.OutboundLeg.CarrierIds)}
           width="50" height="50"/>
         </div>
         <h2>{this.replaceCarrier(el.OutboundLeg.CarrierIds)} &nbsp;</h2>
-        <h3>DEN to SFO &nbsp;</h3>
+        <h3>{this.getOrigin()} to {this.getDestination()} &nbsp;</h3>
         <p>
         Price: {this.state.flights.Currencies[0].Symbol}{el.MinPrice} &nbsp;
         Departure Date: {this.convertDate(el.OutboundLeg.DepartureDate)}
@@ -132,13 +150,14 @@ class View extends Component {
         <br></br>
         </li>
       ))}
+      {this.checkLength()}
       </div>
     </div>)
   }
 
   render() {
     return (
-    <div className= "center">
+    <div className = "center">
     {this.state.isLoading === false ? this.renderFlights() : "Loading"}
     </div>
     );
