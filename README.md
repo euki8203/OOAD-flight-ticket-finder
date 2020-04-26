@@ -18,6 +18,11 @@ with the user provided information (such as price range, date of travel, number 
 from the Skyscanner api. Reference: https://rapidapi.com/blog/skyscanner-api-overview/php/
 
 
+### Published Website:
+
+https://flight-ticket-finder.herokuapp.com/#/View
+
+
 ### Instruction:
 
 1. Get RapidAPI key from https://rapidapi.com/skyscanner/api/skyscanner-flight-search and create a file called constants.js
