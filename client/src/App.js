@@ -5,6 +5,10 @@ import Home from "./Home";
 import View from "./View";
 import Submit from "./Submit";
 
+/*  
+ * Landing page with navigation using React router
+ * to About (Home), View, and Submit pages
+ */
 class App extends Component {
   render() {
     return (

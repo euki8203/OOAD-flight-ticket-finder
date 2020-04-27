@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
+/*  
+ * View page displays flight quotes
+ */
 class View extends Component {
 	constructor(props) {
     super(props);
-
+    // View State for State pattern, takes in props from Submit State
     this.state = (this.props.location.state === undefined) ?
     {
       origin: undefined,
@@ -14,11 +17,12 @@ class View extends Component {
       returnDate: undefined,
       isLoading: true,
       flights: [],
+      // Defining sort behavior at run time for Strategy pattern
       sortBehavior: undefined
     }: this.props.location.state;
   }
 
-
+  // Displays the default quotes for DEN-SFO upon loading
   async componentDidMount(){
   	try{
       await fetch(`findFlight?inboundDate=${this.state.returnDate}&originPlace=${this.state.origin}&destinationPlace=${this.state.destination}&outboundDate=${this.state.depatureDate}&country=${this.state.destinationCountry}`, {mode: 'no-cors'})
@@ -28,6 +32,7 @@ class View extends Component {
               status: response.status,
           })
       ).then(res => {
+          // Define state here, default undefined values handled in Request.js
           this.setState({ 
             flights: res.data,
             isLoading: false
@@ -40,6 +45,7 @@ class View extends Component {
 
   }
 
+  // Loops through the Carriers object in the api response to match ID and return Carrier name
   replaceCarrier(ID) {
     var carrier = ID;
     this.state.flights.Carriers.map(el => {
@@ -51,6 +57,7 @@ class View extends Component {
     return carrier;
   }
 
+  // Returns the logo for some select carriers, otherwise returns default plane logo
   getCarrierLogo(ID) {
     if (ID == "881"){
       return "./british_logo.png";
@@ -72,6 +79,8 @@ class View extends Component {
     }
   }
 
+  // Strategy pattern here for defining sort behavior at runtime
+  // Sorts the flights based on what sort behavior is defined as
   sortFlights(sortBehavior) {
     if (sortBehavior == "price"){
       this.state.flights.Quotes.sort(function(a,b) { return parseInt(a.MinPrice)-parseInt(b.MinPrice)});
@@ -86,21 +95,25 @@ class View extends Component {
 
   }
 
+  // Returns the date in a displayable format
   convertDate(date) {
     var newdate = new Date(date);
     return newdate.getFullYear()+'-' + (newdate.getMonth()+1) + '-'+newdate.getDate();
   }
 
+  // Returns the origin with DEN as default for undefined
   getOrigin() {
     var ret = (this.state.origin == undefined) ? "DEN" : this.state.origin;
     return ret;
   }
 
+  // Returns the destination with SFO as default for undefined
   getDestination() {
     var ret = (this.state.destination == undefined) ? "SFO" : this.state.destination;
     return ret;
   }
 
+  // Filter the flight based on the set price
   filterFlights() {
     var ret = (this.state.price == undefined) ? this.state.flights.Quotes :
     this.state.flights.Quotes.filter(el => {
@@ -112,10 +125,12 @@ class View extends Component {
     return ret;
   }
 
+  // If there are no quotes returned, return this message
   checkLength() {
     if (this.filterFlights().length == 0) { return "No Flights Available"}
   }
 
+  // Factory pattern implemented here for creating the Flight quotes
   renderFlights() {
     console.log(this.state);
     return(
@@ -142,6 +157,7 @@ class View extends Component {
     </div>)
   }
 
+  // Generates the html to be displayed, calls renderFlights
   render() {
     return (
     <div className = "center">

@@ -6,6 +6,7 @@ var path = require('path')
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+// Sends the request to the Skyscanner api with some default values for undefined properties
 app.get('/findFlight', function(req, res) {
 	const { inboundDate, originPlace, destinationPlace, outboundDate, country}  = req.query;
 	let currency = "USD";

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
  
- // TO DO: css. make it look pretty
- // TO DO: link OutboundLeg.CarrierIds to logos of the airline
- // TO DO: get currency symbol
-
+/*  
+ * Submit page for user submitted information
+ */
 class Submit extends Component {
   constructor(props) {
     super(props);
-
+    // Submit State for State pattern
     this.state = {
       origin: undefined,
       destination: undefined,
@@ -18,11 +17,13 @@ class Submit extends Component {
       returnDate: undefined,
       isLoading: true,
       flights: [],
+      // Defining sort behavior at run time for Strategy pattern
+      // initialize with default value price
       sortBehavior: "price"
     };
   }
 
-
+  // Changing the state based on user input
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -32,6 +33,7 @@ class Submit extends Component {
     // console.log(event.target.id,": ", event.target.value)
   }
 
+  // Once the user clicks submit on their information
   async handleClick() {
     try{
       await fetch(`findFlight?inboundDate=${this.state.returnDate}&originPlace=${this.state.origin}&destinationPlace=${this.state.destination}&outboundDate=${this.state.depatureDate}&country=${this.state.destinationCountry}`, {mode: 'no-cors'})
@@ -41,6 +43,7 @@ class Submit extends Component {
               status: response.status,
           })
       ).then(res => {
+          // Define state here with api request, default undefined values handled in Request.js
           this.setState({ 
             flights: res.data,
             isLoading: false
@@ -52,6 +55,7 @@ class Submit extends Component {
     }
   }
 
+  // Helper function to generate a min date to prevent users from selecting dates in the past
   minDate(){
     var someDate = new Date();
     var numberOfDaysToAdd = 1;
@@ -59,15 +63,7 @@ class Submit extends Component {
     return someDate.toISOString().split("T")[0];
   }
 
-  renderFlights(){
-    return this.state.flights.Quotes.map(el => (
-      <li key={el.QuoteId}>
-      {el.QuoteId}: {el.MinPrice}, {el.Direct}, {el.QuoteDateTime}
-       </li>
-    ))
-  }
-
-
+  // Generates the html to be displayed
   render() {
     return (
       <div className="submit">
@@ -98,6 +94,7 @@ class Submit extends Component {
          </form>
          <form>
           <label> Sort by: </label>
+          {/* Strategy pattern here for defining sort behavior during run time */}
           <select id="sortBehavior" value = {this.state.sortBehavior} onChange={this.handleChange}>
             <option value="price">Price</option>
             <option value="time">Time</option>
