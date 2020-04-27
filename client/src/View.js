@@ -41,27 +41,14 @@ class View extends Component {
   }
 
   replaceCarrier(ID) {
-    if (ID == "881"){
-      return "British Airways";
-    }
-    else if (ID == "851"){
-      return "Alaska";
-    }
-    else if (ID == "1793"){
-      return "United";
-    }
-    else if (ID == "1065"){
-      return "Frontier";
-    }
-    else if (ID == "1126"){
-      return "Gulf Air";
-    }
-    else if (ID == "1467"){
-      return "Spirit";
-    }
-    else {
-      return ID;
-    }
+    var carrier = ID;
+    this.state.flights.Carriers.map(el => {
+      if (ID == el.CarrierId) {
+        carrier = el.Name;
+      }
+    });
+
+    return carrier;
   }
 
   getCarrierLogo(ID) {

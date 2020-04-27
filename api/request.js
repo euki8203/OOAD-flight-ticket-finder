@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 var constants = require('./constants');
 const fetch = require("node-fetch");
+var path = require('path')
 
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/findFlight', function(req, res) {
 	const { inboundDate, originPlace, destinationPlace, outboundDate, country}  = req.query;

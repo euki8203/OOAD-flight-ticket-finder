@@ -45,12 +45,18 @@ class Submit extends Component {
             flights: res.data,
             isLoading: false
           })
-          console.log(this.state.flights)
-          //  TO DO: redirect to a different page with the value passed as props
+          // console.log(this.state.flights)
     }));
     }catch (e) {
       alert(e);
     }
+  }
+
+  minDate(){
+    var someDate = new Date();
+    var numberOfDaysToAdd = 1;
+    someDate.setDate(someDate.getDate() + numberOfDaysToAdd)
+    return someDate.toISOString().split("T")[0];
   }
 
   renderFlights(){
@@ -84,11 +90,11 @@ class Submit extends Component {
         <form>
               <p> Departure Dates </p>
               <label> From </label>
-              <input type="date" id="depatureDate" name="depatureDate" value={this.state.depatureDate} onChange={this.handleChange}/>
+              <input type="date" min={new Date().toISOString().split("T")[0]} id="depatureDate" name="depatureDate" value={this.state.depatureDate} onChange={this.handleChange}/>
         </form>
         <form>
               <label>To </label>
-              <input type="date" id="returnDate" name="returnDate" value={this.state.returnDate} onChange={this.handleChange}/>
+              <input type="date" min={this.minDate()} id="returnDate" name="returnDate" value={this.state.returnDate} onChange={this.handleChange}/>
          </form>
          <form>
           <label> Sort by: </label>
@@ -97,7 +103,6 @@ class Submit extends Component {
             <option value="time">Time</option>
           </select>
         </form>
-        {console.log(this.state.sortBehavior)}
       <div>
         <Link to={{ 
             pathname: '/View', 
