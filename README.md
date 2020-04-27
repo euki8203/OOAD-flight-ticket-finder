@@ -1,20 +1,18 @@
-# OOAD-flight-ticket-finder
-
-
 ## Project Summary:
 
-### Best Flight Ticket Matcher
+### Flight Ticket Finder
 
 
 ### Team Members: 
 Ashley Kim ashleykim0506@gmail.com
+
 Elizabeth Qiu eqiu21@gmail.com
 
 
 ### Overview: 
 
-For this project we will design and develop a cloud based web application which will match the cheapest flight ticket 
-with the user provided information (such as price range, date of travel, number of baggage, and etc.) using the data 
+For this project we designed and developed a cloud based web application matches the cheapest flight ticket 
+with user provided information (such as origin, destination, maximum price, dates of travel, etc.) using data 
 from the Skyscanner api. Reference: https://rapidapi.com/blog/skyscanner-api-overview/php/
 
 
